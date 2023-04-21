@@ -68,4 +68,5 @@ def info_start():
   info_canvas.pack_forget()
   start_canvas.pack()
 logs.mainloop()
-tosteris = "matiss"
+tosteris = "niks buza"
+
