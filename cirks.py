@@ -32,7 +32,7 @@ def infopoga():
   logs.title('informācija')
   a.pack_forget()
   info_canvas.pack()
-  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 30,text='START',font=('Bahnschrift Condensed', 12,'bold'),tags=('start'))
+  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 30,text='START',font=('Bahnschrift Condensed', 12,'bold'),tags=('start1'))
   global info_text_atgriezties
   info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 30,text='ATGRIEZTIES',font=('Bahnschrift Condensed', 12, 'bold'),tags=('atgriezties'))
  
@@ -45,11 +45,14 @@ def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
   info_canvas.pack_forget()
-
+def info_start():
+  start_canvas.pack()
+  info_canvas.pack_forget()
+  a.pack_forget()
 global info, start
 
 info_canvas.tag_bind('atgriezties', '<Button-1>', lambda event: atgriezties())
-info_canvas.tag_bind('start', '<Button-1>', lambda event: startpoga()) 
+info_canvas.tag_bind('start1', '<Button-1>', lambda event: startpoga()) 
 
 info = a.create_text(PLATUMS-100,GARUMS-50, text="INFO")
 
@@ -61,12 +64,11 @@ a.tag_bind(start, '<Button-1>', lambda event: info_start())
 #def kas aizver a canvu un atver start canvu(start poga)
 def startpoga():
   a.pack_forget()
-  start_canvas.pack()
+  info_canvas.pack_forget()
+  start_canvas.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
-def info_start():
-  info_canvas.pack_forget()
-  start_canvas.pack()
+
 logs.mainloop()
 tosteris = "niks buza"
 
