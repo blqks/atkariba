@@ -1,5 +1,5 @@
 from tkinter import *
-
+import random
 GARUMS = 400
 PLATUMS = 600
 logs = Tk()
@@ -16,7 +16,17 @@ a.pack()
 info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
-start_canvas = Canvas(logs, width = PLATUMS, height = GARUMS)
+start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS+200)
+def metamais():
+  m1=PhotoImage(file='atkariba/m1.png')
+  if random.randint(1,6)==1:
+    start_canvasm.create_image(100,100,image=1)
+    mtext='1'
+    start_canvas.create_text(100,80,text=mtext)
+  else:
+    pass
+metamais()
+start_canvas.create_line(200,0,200,600,fill='red',width=2)
 start_canvas.pack_forget()
 
 vid_x = PLATUMS / 2
@@ -70,5 +80,4 @@ def startpoga():
 #def kas aizver info canvu un atver start canvu
 
 logs.mainloop()
-tosteris = "niks buza"
-
+tosteris = "niks"
