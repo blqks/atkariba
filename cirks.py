@@ -80,4 +80,4 @@ def startpoga():
 #def kas aizver info canvu un atver start canvu
 
 logs.mainloop()
-tosteris = "niks"
+tosteris = "niks lol"
