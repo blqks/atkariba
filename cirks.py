@@ -1,5 +1,6 @@
 from tkinter import *
-import time
+from time import sleep, time 
+
 GARUMS = 400
 PLATUMS = 600
 logs = Tk()
@@ -19,16 +20,25 @@ info_canvas.pack_forget()
 start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS)
 start_canvas.pack_forget()
 
+#spēles laukums
 board = PhotoImage(file = "board.png")
 start_canvas.create_image(450,205,image = board)
+
+#speletājs
 player=PhotoImage(file='board_player.png')
 start_canvas.create_image(220,330,image=player)
-class klase:
-  start_canvas.create_rectangle(270,320,290,330)
+player_hitbox=start_canvas.create_polygon(220,350, 240,350, 240,360, 220,360,fill='blue')
+
+ierobezojums=10
+beigas=time()+ierobezojums
+
+
+
+start_canvas.create_rectangle(270,320,290,330)
 
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
-#while time.
+
 
 #info poga un info canva
 global info_text_atgriezties
