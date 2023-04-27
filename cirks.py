@@ -6,10 +6,10 @@ logs = Tk()
 logs.title("Atkarību cirks")
 a = Canvas(logs, width=PLATUMS, height=GARUMS)
 
-bg = PhotoImage(file='atkariba/main_background.png')
+bg = PhotoImage(file='main_background.png')
 a.create_image(0, 0, image=bg, anchor='nw')
 
-mainvir = PhotoImage(file='atkariba/main_heading.png')
+mainvir = PhotoImage(file='main_heading.png')
 a.create_image(300,200, image=mainvir)
 a.pack()
 
@@ -26,7 +26,7 @@ vid_y = GARUMS / 2
 #info poga un info canva
 global info_text_atgriezties
 info_text_atgriezties=None
-info_background=PhotoImage(file='atkariba/main_background.png')
+info_background=PhotoImage(file='main_background.png')
 def infopoga():
   info_canvas.create_image(0, 0, image=info_background, anchor='nw')
   logs.title('informācija')
