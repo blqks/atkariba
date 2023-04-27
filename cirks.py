@@ -6,10 +6,10 @@ logs = Tk()
 logs.title("Atkarību cirks")
 a = Canvas(logs, width=PLATUMS, height=GARUMS)
 
-bg = PhotoImage(file='atkariba/main_background.png')
+bg = PhotoImage(file='main_background.png')
 a.create_image(0, 0, image=bg, anchor='nw')
 
-mainvir = PhotoImage(file='atkariba/main_heading.png')
+mainvir = PhotoImage(file='main_heading.png')
 a.create_image(300,200, image=mainvir)
 a.pack()
 
@@ -26,7 +26,7 @@ vid_y = GARUMS / 2
 #info poga un info canva
 global info_text_atgriezties
 info_text_atgriezties=None
-info_background=PhotoImage(file='atkariba/main_background.png')
+info_background=PhotoImage(file='main_background.png')
 def infopoga():
   info_canvas.create_image(0, 0, image=info_background, anchor='nw')
   logs.title('informācija')
@@ -36,11 +36,13 @@ def infopoga():
   global info_text_atgriezties
   info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 30,text='ATGRIEZTIES',font=('Bahnschrift Condensed', 12, 'bold'),tags=('atgriezties'))
  
-  info_canvas.create_text(PLATUMS - 300, GARUMS - 350, text = "Spēles noteikumi", font = ("Bahnshrift Condensed", 20, "bold"))
-  info_canvas.create_text(PLATUMS - 305, GARUMS - 320, text = "Uzsākot spēli lietotājam tiek uzdots jautājums.", font = ("Bahnshrift Condensed", 10, "bold"))
-  info_canvas.create_text(PLATUMS - 295, GARUMS - 290, text = "Ja tiek izvēlēta pareiza atbilde, lietotājs met kauliņu un dodas uz priekšu", font = ("Bahnshrift Condensed", 10, "bold"))
-  info_canvas.create_text(PLATUMS - 305, GARUMS - 260, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
-  info_canvas.create_text(PLATUMS - 305, GARUMS - 220, text = "Ja tiek izvēlēta nepareiza atbilde, lietotājs paliek tajā pašā laukā.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 300, GARUMS - 360, text = "Spēles noteikumi", font = ("Bahnshrift Condensed", 20, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 290, text = "Uzsākot spēli lietotājam tiek uzdots jautājums.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 295, GARUMS - 260, text = "Ja tiek izvēlēta pareiza atbilde, lietotājs met kauliņu un dodas uz priekšu", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 230, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 300, GARUMS - 190, text = "Ja tiek izvēlēta nepareiza atbilde, lietotājs met kauliņu un dodas uz atpakaļu", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 160, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 120, text = "Spēle beidzas, kad lietotājs sasniedz 100. laukumu.", font = ("Bahnshrift Condensed", 10, "bold"))
 def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
@@ -70,5 +72,3 @@ def startpoga():
 #def kas aizver info canvu un atver start canvu
 
 logs.mainloop()
-tosteris = "niks buza"
-
