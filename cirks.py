@@ -19,6 +19,9 @@ info_canvas.pack_forget()
 start_canvas = Canvas(logs, width = PLATUMS, height = GARUMS)
 start_canvas.pack_forget()
 
+board = PhotoImage(file = "board.png")
+start_canvas.create_image(450,205,image = board)
+
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
 
@@ -72,5 +75,4 @@ def startpoga():
 #def kas aizver info canvu un atver start canvu
 
 logs.mainloop()
-tosteris = "niks buza"
 
