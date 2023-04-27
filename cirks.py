@@ -40,7 +40,9 @@ def infopoga():
   info_canvas.create_text(PLATUMS - 305, GARUMS - 320, text = "Uzsākot spēli lietotājam tiek uzdots jautājums.", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 295, GARUMS - 290, text = "Ja tiek izvēlēta pareiza atbilde, lietotājs met kauliņu un dodas uz priekšu", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 260, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
-  info_canvas.create_text(PLATUMS - 305, GARUMS - 220, text = "Ja tiek izvēlēta nepareiza atbilde, lietotājs paliek tajā pašā laukā.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 300, GARUMS - 220, text = "Ja tiek izvēlēta nepareiza atbilde, lietotājs met kauliņu un dodas uz atpakaļu", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 190, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
+  info_canvas.create_text(PLATUMS - 305, GARUMS - 150, text = "Spēle beidzas, kad lietotājs sasniedz 100. laukumu.", font = ("Bahnshrift Condensed", 10, "bold"))
 def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
