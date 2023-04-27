@@ -18,10 +18,25 @@ info_canvas.pack_forget()
 
 start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS+200)
 def metamais():
-  m1=PhotoImage(file='atkariba/m1.png')
   if random.randint(1,6)==1:
-    start_canvasm.create_image(100,100,image=1)
+    #m1=PhotoImage(file='atkariba/m1.png')
+    #start_canvasm.create_image(100,100,image=1)
     mtext='1'
+    start_canvas.create_text(100,80,text=mtext)
+  elif random.randint(1,6)==2:
+    m1=PhotoImage(file='atkariba/m1.png')
+    #start_canvasm.create_image(100,100,image=1)
+    mtext='2'
+    start_canvas.create_text(100,80,text=mtext)
+  elif random.randint(1,6)==3:
+    #m1=PhotoImage(file='atkariba/m1.png')
+    start_canvas.create_image(100,100,image=1)
+    mtext='3'
+    start_canvas.create_text(100,80,text=mtext)
+  elif random.randint(1,6)==4:
+    # m1=PhotoImage(file='atkariba/m1.png')
+    start_canvas.create_image(100,100,image=1)
+    mtext='4'
     start_canvas.create_text(100,80,text=mtext)
   else:
     pass
