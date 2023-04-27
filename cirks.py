@@ -21,6 +21,8 @@ start_canvas.pack_forget()
 
 board = PhotoImage(file = "board.png")
 start_canvas.create_image(450,205,image = board)
+player=PhotoImage(file='board_player.png')
+start_canvas.create_image(220,330,image=player)
 
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
