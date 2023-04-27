@@ -16,7 +16,7 @@ a.pack()
 info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
-start_canvas = Canvas(logs, width = PLATUMS, height = GARUMS)
+start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS)
 start_canvas.pack_forget()
 
 board = PhotoImage(file = "board.png")
