@@ -1,5 +1,5 @@
 from tkinter import *
-
+import time
 GARUMS = 400
 PLATUMS = 600
 logs = Tk()
@@ -23,10 +23,12 @@ board = PhotoImage(file = "board.png")
 start_canvas.create_image(450,205,image = board)
 player=PhotoImage(file='board_player.png')
 start_canvas.create_image(220,330,image=player)
+class klase:
+  start_canvas.create_rectangle(270,320,290,330)
 
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
-
+#while time.
 
 #info poga un info canva
 global info_text_atgriezties
