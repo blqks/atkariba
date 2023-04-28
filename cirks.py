@@ -1,23 +1,24 @@
 from tkinter import *
 from time import sleep, time 
 
-GARUMS = 400
-PLATUMS = 600
+GARUMS = 1080
+PLATUMS = 1920
 logs = Tk()
 logs.title("Atkarību cirks")
+logs.attributes('-fullscreen', True)
 a = Canvas(logs, width=PLATUMS, height=GARUMS)
 
 bg = PhotoImage(file='main_background.png')
 a.create_image(0, 0, image=bg, anchor='nw')
 
 mainvir = PhotoImage(file='main_heading.png')
-a.create_image(300,200, image=mainvir)
+a.create_image(780,300, image=mainvir)
 a.pack()
 
 info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
-start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS)
+start_canvas = Canvas(logs, width = PLATUMS, height = GARUMS)
 start_canvas.pack_forget()
 
 #spēles laukums
@@ -39,6 +40,7 @@ start_canvas.create_rectangle(270,320,290,330)
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
 
+ 
 
 #info poga un info canva
 global info_text_atgriezties
@@ -84,9 +86,15 @@ a.tag_bind(start, '<Button-1>', lambda event: info_start())
 def startpoga():
   a.pack_forget()
   info_canvas.pack_forget()
-  start_canvas.pack(expand=False, fill='none')
+  start_canvas.pack()
   global info, start
 #def kas aizver info canvu un atver start canvu
+#auks1x,lauks1y=280,310
+#global x1,x2,y1,y2
+
+#x1,y1,x2,y2=start_canvas.coords(player_hitbox)
+
+#start_canvas.update()
 
 logs.mainloop()
 
