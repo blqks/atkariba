@@ -73,12 +73,12 @@ global info, start
 info_canvas.tag_bind('atgriezties', '<Button-1>', lambda event: atgriezties())
 info_canvas.tag_bind('start1', '<Button-1>', lambda event: startpoga()) 
 
-info = a.create_text(PLATUMS-100,GARUMS-50, text="INFO")
+info = a.create_text(PLATUMS-150,GARUMS-50, text="INFO")
 
 #no a canva uz info canvu(info poga)
 a.tag_bind(info, '<Button-1>', lambda event: infopoga())
 
-start = a.create_text(PLATUMS - 50, GARUMS - 50,  text="START")
+start = a.create_text(PLATUMS - 100, GARUMS - 50,  text="START")
 a.tag_bind(start, '<Button-1>', lambda event: info_start())
 #def kas aizver a canvu un atver start canvu(start poga)
 def startpoga():
