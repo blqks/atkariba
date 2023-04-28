@@ -9,7 +9,7 @@ logs.attributes('-fullscreen', True)
 a = Canvas(logs, width=PLATUMS, height=GARUMS)
 
 bg = PhotoImage(file='main_background.png')
-a.create_image(0, 0, image=bg, anchor='nw')
+a.create_image(0,0, image = bg, anchor='nw')
 
 mainvir = PhotoImage(file='main_heading.png')
 a.create_image(780,300, image=mainvir)
@@ -97,4 +97,5 @@ def startpoga():
 #start_canvas.update()
 
 logs.mainloop()
+
 
