@@ -49,11 +49,11 @@ def infopoga():
   logs.title('informācija')
   a.pack_forget()
   info_canvas.pack()
-  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 30,text='START',font=('Bahnschrift Condensed', 12,'bold'),tags=('start1'))
+  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 55,text='START',font=('Bahnschrift Condensed', 12,'bold'),tags=('start1'))
   global info_text_atgriezties
-  info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 30,text='ATGRIEZTIES',font=('Bahnschrift Condensed', 12, 'bold'),tags=('atgriezties'))
+  info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 55,text='ATGRIEZTIES',font=('Bahnschrift Condensed', 12, 'bold'),tags=('atgriezties'))
  
-  info_canvas.create_text(PLATUMS - 300, GARUMS - 360, text = "Spēles noteikumi", font = ("Bahnshrift Condensed", 20, "bold"))
+  info_canvas.create_text(PLATUMS - 300, GARUMS - 340, text = "Spēles noteikumi", font = ("Bahnshrift Condensed", 20, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 290, text = "Uzsākot spēli lietotājam tiek uzdots jautājums.", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 295, GARUMS - 260, text = "Ja tiek izvēlēta pareiza atbilde, lietotājs met kauliņu un dodas uz priekšu", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 230, text = "par tik laukumiem.", font = ("Bahnshrift Condensed", 10, "bold"))
