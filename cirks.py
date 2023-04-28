@@ -73,6 +73,6 @@ def startpoga():
   start_canvas.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
-
+ff=0
 logs.mainloop()
 
