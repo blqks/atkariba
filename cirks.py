@@ -87,23 +87,25 @@ def startpoga():
 #def kas aizver info canvu un atver start canvu
 
 #lauciņu koordinātes uz kurām spēlētājs dosies 
-start_canvas.create_rectangle(400,700,410,710)
+start_canvas.create_line(700,400,710,400)
+start_canvas.create_text(800,450,text='15')
+
 pirmais=400,700
-#otrais=
-#tresais=
-#ceturtais=
-#piektais=
-#sestais=
-#septitais
-#astotais=
-#devitais=
-#desmitais=
-#vienpadsmitais=
-#divpadsmitais=
-#trispadsmitais=
-#cetrpadsmitais=
-#piecpadsmitais=
-#sespadsmitais=
+otrais=500,650
+tresais=600,750
+ceturtais=700,650
+piektais=800,750
+sestais=900,650
+septitais=1000,750
+astotais=1100,600
+devitais=1200,600
+desmitais=1310,500
+vienpadsmitais=1300,410
+divpadsmitais=1150,400
+trispadsmitais=1050,430
+cetrpadsmitais=950,400
+piecpadsmitais=800,450
+sespadsmitais=700,400
 #septinpadsmitais=
 #astonpadsmitais=
 #devinpadsmitais=
