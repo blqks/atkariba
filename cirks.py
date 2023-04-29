@@ -17,12 +17,14 @@ a.pack()
 info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
-start_canvas = Canvas(logs, width = PLATUMS+200, height = GARUMS)
+start_canvas = Canvas(logs, width = 1920, height = 1080)
+start_canvas.create_text(300,700,text='STARTS',font=('Cascadia Code SemiBold',20))
+start_canvas.create_text(1450,200,text='BEIGAS',font=('Cascadia Code SemiBold',20))
 start_canvas.pack_forget()
 
 #spēles laukums
 board = PhotoImage(file = "board.png")
-start_canvas.create_image(450,205,image = board)
+start_canvas.create_image(850,400,image = board)
 
 #speletājs
 player=PhotoImage(file='board_player.png')
@@ -31,10 +33,6 @@ player_hitbox=start_canvas.create_polygon(220,350, 240,350, 240,360, 220,360,fil
 
 ierobezojums=10
 beigas=time()+ierobezojums
-
-
-
-start_canvas.create_rectangle(270,320,290,330)
 
 vid_x = PLATUMS / 2
 vid_y = GARUMS / 2
@@ -87,5 +85,40 @@ def startpoga():
   start_canvas.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
-ff=0
+
+#lauciņu koordinātes uz kurām spēlētājs dosies 
+start_canvas.create_rectangle(400,700,410,710)
+pirmais=400,700
+#otrais=
+#tresais=
+#ceturtais=
+#piektais=
+#sestais=
+#septitais
+#astotais=
+#devitais=
+#desmitais=
+#vienpadsmitais=
+#divpadsmitais=
+#trispadsmitais=
+#cetrpadsmitais=
+#piecpadsmitais=
+#sespadsmitais=
+#septinpadsmitais=
+#astonpadsmitais=
+#devinpadsmitais=
+#divdesmitais=
+#divdesmitpirmais=
+#divdesmitotrais=
+#divdesmittresais=
+#divdesmitceturtais=
+#divdesmitpiektais=
+#divdesmitsestais=
+#divdesmitseptitais=
+#divdesmitastotais=
+#divdesmitdevitais=
+#trisdesmitais=
+
+
+
 logs.mainloop()
