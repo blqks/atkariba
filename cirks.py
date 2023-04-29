@@ -121,4 +121,6 @@ pirmais=400,700
 
 
 
+
 logs.mainloop()
+
