@@ -18,7 +18,7 @@ info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
 start_canvas = Canvas(logs, width = 1920, height = 1080)
-start_canvas.create_text(300,700,text='STARTS',font=('Cascadia Code SemiBold',20))
+kustiba=start_canvas.create_text(300,700,text='STARTS',font=('Cascadia Code SemiBold',20),tags=('kustiba'))
 start_canvas.create_text(1450,200,text='BEIGAS',font=('Cascadia Code SemiBold',20))
 start_canvas.pack_forget()
 
@@ -27,8 +27,8 @@ board = PhotoImage(file = "board.png")
 start_canvas.create_image(850,400,image = board)
 
 #speletājs
-player=PhotoImage(file='board_player.png')
-start_canvas.create_image(220,330,image=player)
+img=PhotoImage(file='board_player.png')
+player=start_canvas.create_image(400,700,image=img)
 player_hitbox=start_canvas.create_polygon(220,350, 240,350, 240,360, 220,360,fill='blue')
 
 ierobezojums=10
@@ -120,9 +120,23 @@ sespadsmitais=700,400
 #divdesmitastotais=
 #divdesmitdevitais=
 #trisdesmitais=
-
-
-
-
+mx=5
+my=5
+#yd un xd ir x-destination un y-destination
+coords=[(400,500),(400,400),(800,400),(800,700),(400,700)]
+#def startstart():
+for xd,yd in coords:
+  while True:
+    sleep(0.7)
+    x1,y1=start_canvas.coords(player)
+    if x1<xd:
+      start_canvas.move(player,mx,-5)
+    if y1<yd:
+      start_canvas.move(player,0,my)
+    if x1>=xd and y1>=yd:
+      break
+    start_canvas.update()
+    start_canvas.after(10)
+#start_canvas.tag_bind(kustiba, '<Button-1>', lambda event: startstart())     
 logs.mainloop()
 
