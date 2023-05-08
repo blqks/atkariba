@@ -1,5 +1,6 @@
 from tkinter import *
 from time import sleep, time 
+from random import randint
 
 GARUMS = 400
 PLATUMS = 600
@@ -18,8 +19,8 @@ info_canvas = Canvas(logs, width=PLATUMS, height=GARUMS)
 info_canvas.pack_forget()
 
 start_canvas = Canvas(logs, width = 1920, height = 1080)
-kustiba=start_canvas.create_text(300,700,text='STARTS',font=('Cascadia Code SemiBold',20),tags=('kustiba'))
-start_canvas.create_text(1450,200,text='BEIGAS',font=('Cascadia Code SemiBold',20))
+kustiba=start_canvas.create_text(280,700,text='STARTS',font=('Fixedsys 30'),tags=('kustiba'))
+start_canvas.create_text(1470,200,text='BEIGAS',font=('Fixedsys 30'))
 start_canvas.pack_forget()
 
 #spēles laukums
@@ -29,13 +30,10 @@ start_canvas.create_image(850,400,image = board)
 #speletājs
 img=PhotoImage(file='board_player.png')
 player=start_canvas.create_image(400,700,image=img)
-player_hitbox=start_canvas.create_polygon(220,350, 240,350, 240,360, 220,360,fill='blue')
+player_hitbox=start_canvas.create_polygon(400,700,410,700,410,710,400,710,fill='blue')
 
 ierobezojums=10
 beigas=time()+ierobezojums
-
-vid_x = PLATUMS / 2
-vid_y = GARUMS / 2
 
 
 #info poga un info canva
@@ -89,17 +87,23 @@ def startpoga():
 #lauciņu koordinātes uz kurām spēlētājs dosies 
 start_canvas.create_line(700,400,710,400)
 start_canvas.create_text(800,450,text='15')
+start_canvas.create_text(1250,620,text='9')
+start_canvas.create_text(1300,410,text='11')
+
+def callback(event):
+  print('clicked',event.x,event.y)
+start_canvas.bind('<Button-1>',callback)
 
 pirmais=400,700
-otrais=500,650
-tresais=600,750
+otrais=500,620
+tresais=520,700
 ceturtais=700,650
-piektais=800,750
+piektais=750,700
 sestais=900,650
-septitais=1000,750
-astotais=1100,600
-devitais=1200,600
-desmitais=1310,500
+septitais=1000,700
+astotais=1050,620
+devitais=1250,620
+desmitais=1310,400
 vienpadsmitais=1300,410
 divpadsmitais=1150,400
 trispadsmitais=1050,430
@@ -123,20 +127,82 @@ sespadsmitais=700,400
 mx=5
 my=5
 #yd un xd ir x-destination un y-destination
-coords=[(400,500),(400,400),(800,400),(800,700),(400,700)]
+coords=[(pirmais),(otrais),(tresais),(ceturtais),(piektais),(sestais),(septitais),(astotais),(devitais),(desmitais),(vienpadsmitais),(divpadsmitais)]
 #def startstart():
-for xd,yd in coords:
-  while True:
-    sleep(0.7)
-    x1,y1=start_canvas.coords(player)
-    if x1<xd:
-      start_canvas.move(player,mx,-5)
-    if y1<yd:
-      start_canvas.move(player,0,my)
-    if x1>=xd and y1>=yd:
-      break
+# for xd,yd in coords:
+#   while True:
+#     x1,y1=start_canvas.coords(player)
+#     if y1>=600:
+#       if x1<=xd:
+#         start_canvas.move(player,mx,-5)
+#         start_canvas.move(player_hitbox,mx,-5)
+#       if y1<=yd:
+#         start_canvas.move(player, 5, my)
+#         start_canvas.move(player_hitbox, 5, my)  
+#     elif y1<600:
+#       if y1 > yd:
+#         start_canvas.move(player, 0, -my)
+#         start_canvas.move(player_hitbox, 0, -my)
+#       elif y1 < yd:
+#         start_canvas.move(player, 0, my)
+#         start_canvas.move(player_hitbox, 0, my)
+#       if x1 < xd:
+#         start_canvas.move(player, mx, 0)
+#         start_canvas.move(player_hitbox, mx, 0)
+#       elif x1 > xd:
+#         start_canvas.move(player, -mx, 0)
+#         start_canvas.move(player_hitbox, -mx, 0)
+#     start_canvas.update()
+#     sleep(0.1)
+#     if x1>=xd and y1>=yd:
+#       print(x1,y1)
+#       break
+
+
+#metamais kaulins
+rand=0
+g=start_canvas.create_text(160,20,text=str(rand),font=('Fixedsys 30'))
+pirma_bilde = PhotoImage(file='metamais1.png')
+otra_bilde=PhotoImage(file='metamais2.png')
+tresa_bilde=PhotoImage(file='metamais3.png')
+ceturta_bilde=PhotoImage(file='metamais4.png')
+piekta_bilde=PhotoImage(file='metamais5.png')
+sesta_bilde=PhotoImage(file='metamais6.png')
+def mest():
+  global rand
+  rand = randint(1,6)
+  if rand == 1:
+    b1=start_canvas.create_image(155,290,image=pirma_bilde)
     start_canvas.update()
-    start_canvas.after(10)
+
+  if rand==2:
+    b2=start_canvas.create_image(155,290,image=otra_bilde)
+    start_canvas.update()
+   
+  if rand==3:
+    b3=start_canvas.create_image(155,290,image=tresa_bilde)
+    start_canvas.update()
+   
+  if rand==4:
+    b4=start_canvas.create_image(155,290,image=ceturta_bilde)
+    start_canvas.update()
+
+  if rand==5:
+    b5=start_canvas.create_image(155,290,image=piekta_bilde)
+    start_canvas.update()
+
+  if rand==6:
+    b6=start_canvas.create_image(155,290,image=sesta_bilde)
+    start_canvas.update() 
+        
+  start_canvas.itemconfig(g, text=str(rand))
+  
+t = start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='orange')
+
+t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='orange')
+
+start_canvas.create_rectangle(35,65,285,100,outline='orange',width=2)
+
+start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
 #start_canvas.tag_bind(kustiba, '<Button-1>', lambda event: startstart())     
 logs.mainloop()
-
