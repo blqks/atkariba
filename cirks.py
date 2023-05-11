@@ -95,11 +95,11 @@ def callback(event):
 start_canvas.bind('<Button-1>',callback)
 
 pirmais=400,700
-otrais=510,640
-tresais=520,700
+otrais=510,635
+tresais=600,720
 ceturtais=700,650
-piektais=750,700
-sestais=900,650
+piektais=800,700
+sestais=910,650
 septitais=1000,700
 astotais=1050,620
 devitais=1250,620
