@@ -45,9 +45,9 @@ def infopoga():
   logs.title('informācija')
   a.pack_forget()
   info_canvas.pack()
-  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 55,text='START',font=('Bahnschrift Condensed', 12,'bold'),tags=('start1'))
+  info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 55,text='START',font=('Courier 20 bold'),tags=('start1'))
   global info_text_atgriezties
-  info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 55,text='ATGRIEZTIES',font=('Bahnschrift Condensed', 12, 'bold'),tags=('atgriezties'))
+  info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 55,text='ATGRIEZTIES',font=('Courier 20 bold'),tags=('atgriezties'))
  
   info_canvas.create_text(PLATUMS - 300, GARUMS - 340, text = "Spēles noteikumi", font = ("Bahnshrift Condensed", 20, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 290, text = "Uzsākot spēli lietotājam tiek uzdots jautājums.", font = ("Bahnshrift Condensed", 10, "bold"))
@@ -69,12 +69,12 @@ global info, start
 info_canvas.tag_bind('atgriezties', '<Button-1>', lambda event: atgriezties())
 info_canvas.tag_bind('start1', '<Button-1>', lambda event: startpoga()) 
 
-info = a.create_text(PLATUMS-150,GARUMS-50, text="INFO")
+info = a.create_text(PLATUMS-200,GARUMS-60, text="INFO",font=('Courier 20 bold'))
 
 #no a canva uz info canvu(info poga)
 a.tag_bind(info, '<Button-1>', lambda event: infopoga())
 
-start = a.create_text(PLATUMS - 100, GARUMS - 50,  text="START")
+start = a.create_text(PLATUMS - 115, GARUMS - 60,  text="START",font=('Courier 20 bold'))
 a.tag_bind(start, '<Button-1>', lambda event: info_start())
 #def kas aizver a canvu un atver start canvu(start poga)
 def startpoga():
@@ -127,7 +127,8 @@ sespadsmitais=700,400
 mx=5
 my=5
 #yd un xd ir x-destination un y-destination
-coords=[(pirmais),(otrais),(tresais),(ceturtais),(piektais),(sestais),(septitais),(astotais),(devitais),(desmitais),(vienpadsmitais),(divpadsmitais)]
+i=0
+coords=[(pirmais),(otrais),(tresais),(ceturtais),(piektais),(sestais),(septitais),(astotais),(devitais),(desmitais)]
 #def startstart():
 # for xd,yd in coords:
 #   while True:
@@ -159,6 +160,8 @@ coords=[(pirmais),(otrais),(tresais),(ceturtais),(piektais),(sestais),(septitais
 #       break
 
 
+
+
 #metamais kaulins
 rand=0
 g=start_canvas.create_text(160,20,text=str(rand),font=('Fixedsys 30'))
@@ -170,39 +173,59 @@ piekta_bilde=PhotoImage(file='metamais5.png')
 sesta_bilde=PhotoImage(file='metamais6.png')
 def mest():
   global rand
+  x1,y1=start_canvas.coords(player)
   rand = randint(1,6)
+
   if rand == 1:
+    start_canvas.coords(player,500,620)
     b1=start_canvas.create_image(155,290,image=pirma_bilde)
     start_canvas.update()
 
   if rand==2:
     b2=start_canvas.create_image(155,290,image=otra_bilde)
+    start_canvas.coords(player,520,700)
     start_canvas.update()
    
   if rand==3:
     b3=start_canvas.create_image(155,290,image=tresa_bilde)
+    start_canvas.coords(player,700,650)
     start_canvas.update()
    
   if rand==4:
     b4=start_canvas.create_image(155,290,image=ceturta_bilde)
+    start_canvas.coords(player,750,700)
     start_canvas.update()
 
   if rand==5:
     b5=start_canvas.create_image(155,290,image=piekta_bilde)
+    start_canvas.coords(player,900,650)
     start_canvas.update()
 
   if rand==6:
     b6=start_canvas.create_image(155,290,image=sesta_bilde)
+    start_canvas.coords(player,1000,700)
     start_canvas.update() 
         
-  start_canvas.itemconfig(g, text=str(rand))
+  start_canvas.itemconfig(g, text=str(rand), fill='#FF8300')
   
-t = start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='orange')
+def move_player(roll):
+    # Get the current index of the player
+    current_index = coords.index(start_canvas.coords(player))
 
-t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='orange')
+    # Calculate the new index of the player
+    new_index = current_index + roll
+
+    # Get the coordinates of the space the player is moving to
+    new_coords = coords[new_index]
+
+    # Move the player to the new space using start_canvas.move()
+    start_canvas.move(player, new_coords[0] - start_canvas.coords(player)[0], new_coords[1] - start_canvas.coords(player)[1])
+t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
 start_canvas.create_rectangle(35,65,285,100,outline='orange',width=2)
 
 start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
+
+#kustiba 
 #start_canvas.tag_bind(kustiba, '<Button-1>', lambda event: startstart())     
 logs.mainloop()
