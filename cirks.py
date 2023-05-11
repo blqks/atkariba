@@ -95,7 +95,7 @@ def callback(event):
 start_canvas.bind('<Button-1>',callback)
 
 pirmais=400,700
-otrais=500,620
+otrais=510,640
 tresais=520,700
 ceturtais=700,650
 piektais=750,700
@@ -177,49 +177,37 @@ def mest():
   rand = randint(1,6)
 
   if rand == 1:
-    start_canvas.coords(player,500,620)
+    start_canvas.coords(player,pirmais)
     b1=start_canvas.create_image(155,290,image=pirma_bilde)
     start_canvas.update()
 
   if rand==2:
     b2=start_canvas.create_image(155,290,image=otra_bilde)
-    start_canvas.coords(player,520,700)
+    start_canvas.coords(player,otrais)
     start_canvas.update()
    
   if rand==3:
     b3=start_canvas.create_image(155,290,image=tresa_bilde)
-    start_canvas.coords(player,700,650)
+    start_canvas.coords(player,tresais)
     start_canvas.update()
    
   if rand==4:
     b4=start_canvas.create_image(155,290,image=ceturta_bilde)
-    start_canvas.coords(player,750,700)
+    start_canvas.coords(player,ceturtais)
     start_canvas.update()
 
   if rand==5:
     b5=start_canvas.create_image(155,290,image=piekta_bilde)
-    start_canvas.coords(player,900,650)
+    start_canvas.coords(player,piektais)
     start_canvas.update()
 
   if rand==6:
     b6=start_canvas.create_image(155,290,image=sesta_bilde)
-    start_canvas.coords(player,1000,700)
+    start_canvas.coords(player,sestais)
     start_canvas.update() 
         
   start_canvas.itemconfig(g, text=str(rand), fill='#FF8300')
   
-def move_player(roll):
-    # Get the current index of the player
-    current_index = coords.index(start_canvas.coords(player))
-
-    # Calculate the new index of the player
-    new_index = current_index + roll
-
-    # Get the coordinates of the space the player is moving to
-    new_coords = coords[new_index]
-
-    # Move the player to the new space using start_canvas.move()
-    start_canvas.move(player, new_coords[0] - start_canvas.coords(player)[0], new_coords[1] - start_canvas.coords(player)[1])
 t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
 start_canvas.create_rectangle(35,65,285,100,outline='orange',width=2)
