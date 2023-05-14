@@ -110,57 +110,29 @@ trispadsmitais=1050,430
 cetrpadsmitais=950,400
 piecpadsmitais=800,450
 sespadsmitais=700,400
-#septinpadsmitais=
-#astonpadsmitais=
-#devinpadsmitais=
-#divdesmitais=
-#divdesmitpirmais=
-#divdesmitotrais=
-#divdesmittresais=
-#divdesmitceturtais=
-#divdesmitpiektais=
-#divdesmitsestais=
-#divdesmitseptitais=
-#divdesmitastotais=
-#divdesmitdevitais=
-#trisdesmitais=
+septinpadsmitais=595,480
+astonpadsmitais=475,420
+devinpadsmitais=370,330
+divdesmitais=355,210
+divdesmitpirmais=450,130
+divdesmitotrais=560,185
+divdesmittresais=670,110
+divdesmitceturtais=770,185
+divdesmitpiektais=880,120
+divdesmitsestais=980,200
+divdesmitseptitais=1075,120
+divdesmitastotais=1150,210
+divdesmitdevitais=1245,125
+trisdesmitais=1325,215
 mx=5
 my=5
 #yd un xd ir x-destination un y-destination
 i=0
-coords=[(pirmais),(otrais),(tresais),(ceturtais),(piektais),(sestais),(septitais),(astotais),(devitais),(desmitais)]
-#def startstart():
-# for xd,yd in coords:
-#   while True:
-#     x1,y1=start_canvas.coords(player)
-#     if y1>=600:
-#       if x1<=xd:
-#         start_canvas.move(player,mx,-5)
-#         start_canvas.move(player_hitbox,mx,-5)
-#       if y1<=yd:
-#         start_canvas.move(player, 5, my)
-#         start_canvas.move(player_hitbox, 5, my)  
-#     elif y1<600:
-#       if y1 > yd:
-#         start_canvas.move(player, 0, -my)
-#         start_canvas.move(player_hitbox, 0, -my)
-#       elif y1 < yd:
-#         start_canvas.move(player, 0, my)
-#         start_canvas.move(player_hitbox, 0, my)
-#       if x1 < xd:
-#         start_canvas.move(player, mx, 0)
-#         start_canvas.move(player_hitbox, mx, 0)
-#       elif x1 > xd:
-#         start_canvas.move(player, -mx, 0)
-#         start_canvas.move(player_hitbox, -mx, 0)
-#     start_canvas.update()
-#     sleep(0.1)
-#     if x1>=xd and y1>=yd:
-#       print(x1,y1)
-#       break
-
-
-
+coords = [(400, 700), (510, 635), (600, 720), (700, 650), (800, 700), (910, 635), 
+          (1000, 720), (1050, 620), (1250, 620), (1310, 400), (1300, 410), (1150, 400), 
+          (1050, 430), (950, 400), (800, 450), (700, 400), (595, 480), (475, 420), 
+          (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
+          (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
 
 #metamais kaulins
 rand=0
@@ -172,42 +144,45 @@ ceturta_bilde=PhotoImage(file='metamais4.png')
 piekta_bilde=PhotoImage(file='metamais5.png')
 sesta_bilde=PhotoImage(file='metamais6.png')
 def mest():
-  global rand
-  x1,y1=start_canvas.coords(player)
-  rand = randint(1,6)
+    global rand, current_square
+    x1, y1 = start_canvas.coords(player)
+    rand = randint(1, 6)
 
-  if rand == 1:
-    start_canvas.coords(player,pirmais)
-    b1=start_canvas.create_image(155,290,image=pirma_bilde)
-    start_canvas.update()
+    # Show dice image for rolled number
+    if rand == 1:
+        dice_image = pirma_bilde
+    elif rand == 2:
+        dice_image = otra_bilde
+    elif rand == 3:
+        dice_image = tresa_bilde
+    elif rand == 4:
+        dice_image = ceturta_bilde
+    elif rand == 5:
+        dice_image = piekta_bilde
+    else:
+        dice_image = sesta_bilde
+    dice = start_canvas.create_image(155, 290, image=dice_image)
 
-  if rand==2:
-    b2=start_canvas.create_image(155,290,image=otra_bilde)
-    start_canvas.coords(player,otrais)
-    start_canvas.update()
-   
-  if rand==3:
-    b3=start_canvas.create_image(155,290,image=tresa_bilde)
-    start_canvas.coords(player,tresais)
-    start_canvas.update()
-   
-  if rand==4:
-    b4=start_canvas.create_image(155,290,image=ceturta_bilde)
-    start_canvas.coords(player,ceturtais)
-    start_canvas.update()
+    start_canvas.itemconfig(g, text=str(rand), fill='#FF8300')
+from random import randint
 
-  if rand==5:
-    b5=start_canvas.create_image(155,290,image=piekta_bilde)
-    start_canvas.coords(player,piektais)
-    start_canvas.update()
+current_square = 0  # Set the current square to the first square
+coords = [(400, 700), (510, 635), (600, 720), (700, 650), (800, 700), (910, 635), 
+          (1000, 720), (1050, 620), (1250, 620), (1310, 400), (1300, 410), (1150, 400), 
+          (1050, 430), (950, 400), (800, 450), (700, 400), (595, 480), (475, 420), 
+          (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
+          (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
 
-  if rand==6:
-    b6=start_canvas.create_image(155,290,image=sesta_bilde)
-    start_canvas.coords(player,sestais)
-    start_canvas.update() 
-        
-  start_canvas.itemconfig(g, text=str(rand), fill='#FF8300')
-  
+def move_player(num_squares):
+  global current_square
+  new_square = current_square + num_squares
+  if new_square >= len(coords):
+      new_square = len(coords) - 1
+  x, y = coords[new_square]
+  print(f"Moving to square {new_square} at coordinates ({x}, {y})")
+  current_square = new_square
+
+
 t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
 start_canvas.create_rectangle(35,65,285,100,outline='orange',width=2)
