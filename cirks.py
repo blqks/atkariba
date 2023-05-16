@@ -175,14 +175,7 @@ coords = [(400, 700), (510, 635), (600, 720), (700, 650), (800, 700), (910, 635)
         (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
         (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
 
-def move_player(num_squares):
-  global current_square
-  new_square = current_square + num_squares
-  if new_square >= len(coords):
-    new_square = len(coords) - 1
-  x, y = coords[new_square]
-  print(f"Moving to square {new_square} at coordinates ({x}, {y})")
-  current_square = new_square
+
 
 t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
