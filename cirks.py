@@ -1,7 +1,11 @@
 from tkinter import *
 from time import sleep, time 
 from random import randint
-
+import pygame
+#muzika
+pygame.mixer.init()
+pygame.mixer.music.load('music.mp3')
+pygame.mixer.music.play(loops=10)
 GARUMS = 400
 PLATUMS = 600
 logs = Tk()
@@ -147,8 +151,6 @@ def mest():
     global rand, current_square
     x1, y1 = start_canvas.coords(player)
     rand = randint(1, 6)
-
-    # Show dice image for rolled number
     if rand == 1:
         dice_image = pirma_bilde
     elif rand == 2:
@@ -162,26 +164,25 @@ def mest():
     else:
         dice_image = sesta_bilde
     dice = start_canvas.create_image(155, 290, image=dice_image)
+  
 
     start_canvas.itemconfig(g, text=str(rand), fill='#FF8300')
-from random import randint
 
 current_square = 0  # Set the current square to the first square
 coords = [(400, 700), (510, 635), (600, 720), (700, 650), (800, 700), (910, 635), 
-          (1000, 720), (1050, 620), (1250, 620), (1310, 400), (1300, 410), (1150, 400), 
-          (1050, 430), (950, 400), (800, 450), (700, 400), (595, 480), (475, 420), 
-          (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
-          (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
+        (1000, 720), (1050, 620), (1250, 620), (1310, 400), (1300, 410), (1150, 400), 
+        (1050, 430), (950, 400), (800, 450), (700, 400), (595, 480), (475, 420), 
+        (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
+        (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
 
 def move_player(num_squares):
   global current_square
   new_square = current_square + num_squares
   if new_square >= len(coords):
-      new_square = len(coords) - 1
+    new_square = len(coords) - 1
   x, y = coords[new_square]
   print(f"Moving to square {new_square} at coordinates ({x}, {y})")
   current_square = new_square
-
 
 t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
