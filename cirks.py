@@ -66,6 +66,9 @@ def atgriezties():
   info_canvas.pack_forget()
 def info_start():
   start_canvas.pack()
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
   info_canvas.pack_forget()
   a.pack_forget()
 global info, start
@@ -84,6 +87,9 @@ a.tag_bind(start, '<Button-1>', lambda event: info_start())
 def startpoga():
   a.pack_forget()
   info_canvas.pack_forget()
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
   start_canvas.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
@@ -175,13 +181,12 @@ coords = [(400, 700), (510, 635), (600, 720), (700, 650), (800, 700), (910, 635)
         (370, 330), (355, 210), (450, 130), (560, 185), (670, 110), (770, 185), 
         (880, 120), (980, 200), (1075, 120), (1150, 210), (1245, 125), (1325, 215)]
 
-
-
 t=start_canvas.create_text(160,80,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
 start_canvas.create_rectangle(35,65,285,100,outline='orange',width=2)
 
 start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
+
 
 #kustiba 
 #start_canvas.tag_bind(kustiba, '<Button-1>', lambda event: startstart())     
