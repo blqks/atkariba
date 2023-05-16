@@ -39,11 +39,12 @@ player_hitbox=start_canvas.create_polygon(400,700,410,700,410,710,400,710,fill='
 ierobezojums=10
 beigas=time()+ierobezojums
 
-
 #info poga un info canva
 global info_text_atgriezties
 info_text_atgriezties=None
 info_background=PhotoImage(file='main_background.png')
+global pauze, bilde, mute,mute2
+mute=PhotoImage(file='mute.png')
 def infopoga():
   info_canvas.create_image(0, 0, image=info_background, anchor='nw')
   logs.title('informācija')
@@ -71,11 +72,24 @@ def info_start():
   pygame.mixer.music.play(loops=10)
   info_canvas.pack_forget()
   a.pack_forget()
-global info, start
 
+pauze=False
+def muzikas_sledzis(vai_nopauzets):
+  global pauze ,bilde
+  pauze=vai_nopauzets
+  if pauze==True:
+    pygame.mixer.music.unpause()
+    pauze=False
+  else:
+    pygame.mixer.music.pause()
+    pauze=True
+
+global info, start
 info_canvas.tag_bind('atgriezties', '<Button-1>', lambda event: atgriezties())
 info_canvas.tag_bind('start1', '<Button-1>', lambda event: startpoga()) 
-
+sledzis=a.create_image(PLATUMS-250,GARUMS-60,image=mute)
+#muzika mute vai unmute
+a.tag_bind(sledzis,'<Button-1>',lambda event: muzikas_sledzis(pauze))
 info = a.create_text(PLATUMS-200,GARUMS-60, text="INFO",font=('Courier 20 bold'))
 
 #no a canva uz info canvu(info poga)
@@ -84,6 +98,8 @@ a.tag_bind(info, '<Button-1>', lambda event: infopoga())
 start = a.create_text(PLATUMS - 115, GARUMS - 60,  text="START",font=('Courier 20 bold'))
 a.tag_bind(start, '<Button-1>', lambda event: info_start())
 #def kas aizver a canvu un atver start canvu(start poga)
+
+
 def startpoga():
   a.pack_forget()
   info_canvas.pack_forget()
