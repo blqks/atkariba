@@ -153,6 +153,12 @@ pirma_bilde = PhotoImage(file='metamais1.png')
 otra_bilde=PhotoImage(file='metamais2.png')
 tresa_bilde=PhotoImage(file='metamais3.png')
 
+def move_player(steps):
+    global player, coords
+    x, y = start_canvas.coords(player)
+    target_index = min(len(coords) - 1, coords.index((x, y)) + steps)
+    target_x, target_y = coords[target_index]
+    start_canvas.coords(player, target_x, target_y)
 def mest():
     global rand, current_square
     x1, y1 = start_canvas.coords(player)
@@ -163,9 +169,14 @@ def mest():
         dice_image = otra_bilde
     else:
         dice_image = tresa_bilde
-    
+    move_player(rand)
     dice = start_canvas.create_image(869,478 , image=dice_image)
-  
+coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
+          (1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
+          (1036, 478), (869, 478), (706, 478), (542, 478), (376, 478), (212, 326), 
+          (212, 174), (212, 174), (376, 174), (541, 174), (707, 174), (869, 174), 
+          (1032, 174), (1199, 174), (1361, 174),(1527,174)]   
+
 
 t=start_canvas.create_text(861,626,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
