@@ -175,12 +175,30 @@ def mest():
         dice_image = tresa_bilde
     move_player(rand)
     dice = start_canvas.create_image(869,478 , image=dice_image)
-    start_canvas.create_rectangle(529,281,1199,574,fill='red')
+    
+    def parbaude():
+      if rand==1 or 2 or 3:
+        global rec, japoga, nepoga,q
+        sleep(0.1)
+        rec=start_canvas.create_rectangle(529,281,1199,574,fill='red')
+        q=start_canvas.create_text(836,357,text='vai tu lieto narkotikas?',font=('Courier 25 bold'))
+        
+        japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
+        nepoga=start_canvas.create_text(920,555,text='NĒ',tags=('ne'),font=('Courier 20 bold'))
+        start_canvas.tag_bind('ja', '<Button-1>', lambda event: ja() )
+        start_canvas.tag_bind('ne', '<Button-1>', lambda event: ja())
+    parbaude()
+    def ja():
+      global rec, japoga, nepoga,q
+      start_canvas.itemconfigure(rec,state='hidden')
+      start_canvas.itemconfigure(q,state='hidden')
+      start_canvas.itemconfigure(japoga,state='hidden')
+      start_canvas.itemconfigure(nepoga,state='hidden')
 coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
-          (1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
-          (1036, 478), (869, 478), (706, 478), (542, 478), (376, 478), (212, 326), 
-          (212, 174), (212, 174), (376, 174), (541, 174), (707, 174), (869, 174), 
-          (1032, 174), (1199, 174), (1361, 174),(1527,174)]   
+(1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
+(1036, 478), (869, 478), (706, 478), (542, 478), (376, 478), (212, 326), 
+(212, 174), (212, 174), (376, 174), (541, 174), (707, 174), (869, 174), 
+(1032, 174), (1199, 174), (1361, 174),(1527,174)]   
 
 
 
