@@ -25,6 +25,8 @@ info_canvas.pack_forget()
 start_canvas = Canvas(logs, width = 1920, height = 1080)
 kustiba=start_canvas.create_text(280,700,text='STARTS',font=('Fixedsys 30'),tags=('kustiba'))
 start_canvas.create_text(1470,200,text='BEIGAS',font=('Fixedsys 30'))
+gta=PhotoImage(file='background_gta.png')
+start_canvas.create_image(0,0, anchor='nw',image=gta)
 
 start_canvas.pack_forget()
 
