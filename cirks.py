@@ -175,6 +175,7 @@ def mest():
         dice_image = tresa_bilde
     move_player(rand)
     dice = start_canvas.create_image(869,478 , image=dice_image)
+    start_canvas.create_rectangle(529,281,1199,574,fill='red')
 coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
           (1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
           (1036, 478), (869, 478), (706, 478), (542, 478), (376, 478), (212, 326), 
@@ -182,10 +183,10 @@ coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779),
           (1032, 174), (1199, 174), (1361, 174),(1527,174)]   
 
 
+
 t=start_canvas.create_text(861,626,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
-start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
-
+tpoga = start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
 
 #kustiba 
 #start_canvas.tag_bind(kustiba, '<Button-1>', lambda event: startstart())
