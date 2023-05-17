@@ -45,7 +45,6 @@ def infopoga():
   logs.title('informācija')
   a.pack_forget()
   info_canvas.pack()
-
   info_text_start = info_canvas.create_text(PLATUMS - 200,GARUMS - 55,text='START',font=('Courier 20 bold'),tags=('start1'))
   global info_text_atgriezties
   info_text_atgriezties = info_canvas.create_text(PLATUMS - 400,GARUMS - 55,text='ATGRIEZTIES',font=('Courier 20 bold'),tags=('atgriezties'))
