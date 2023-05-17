@@ -25,6 +25,7 @@ info_canvas.pack_forget()
 start_canvas = Canvas(logs, width = 1920, height = 1080)
 kustiba=start_canvas.create_text(280,700,text='STARTS',font=('Fixedsys 30'),tags=('kustiba'))
 start_canvas.create_text(1470,200,text='BEIGAS',font=('Fixedsys 30'))
+
 start_canvas.pack_forget()
 
 #spēles laukums
@@ -57,6 +58,7 @@ def infopoga():
   info_canvas.create_text(PLATUMS - 305, GARUMS - 160, text = "un atbild uz citu jautājumu.", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 120, text = "Spēle beidzas, kad lietotājs sasniedz sarkano laukumu.", font = ("Bahnshrift Condensed", 10, "bold"))
 mute=PhotoImage(file='mute.png')
+start_canvas
 def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
@@ -93,6 +95,8 @@ sledzis=a.create_image(PLATUMS-250,GARUMS-60,image=mute)
 a.tag_bind(sledzis,'<Button-1>',lambda event: muzikas_sledzis(pauze))
 start = a.create_text(PLATUMS - 115, GARUMS - 60,  text="START",font=('Courier 20 bold'))
 a.tag_bind(start, '<Button-1>', lambda event: info_start())
+sledzis2=start_canvas.create_image(50,30,image=mute)
+start_canvas.tag_bind(sledzis2,'<Button-1>',lambda event: muzikas_sledzis(pauze))
 #def kas aizver a canvu un atver start canvu(start poga)
 def startpoga():
   a.pack_forget()
@@ -148,7 +152,6 @@ player=start_canvas.create_image(starts,image=img)
 
 #metamais kaulins
 rand=0
-g=start_canvas.create_text(160,20,text=str(rand),font=('Fixedsys 30'))
 pirma_bilde = PhotoImage(file='metamais1.png')
 otra_bilde=PhotoImage(file='metamais2.png')
 tresa_bilde=PhotoImage(file='metamais3.png')
@@ -156,9 +159,10 @@ tresa_bilde=PhotoImage(file='metamais3.png')
 def move_player(steps):
     global player, coords
     x, y = start_canvas.coords(player)
-    target_index = min(len(coords) - 1, coords.index((x, y)) + steps)
-    target_x, target_y = coords[target_index]
-    start_canvas.coords(player, target_x, target_y)
+    merkis = min(len(coords) - 1, coords.index((x, y)) + steps)
+    mx, my = coords[merkis]
+    start_canvas.coords(player, mx, my)
+
 def mest():
     global rand, current_square
     x1, y1 = start_canvas.coords(player)
