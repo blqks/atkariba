@@ -244,6 +244,7 @@ def mest():
           laucins='lauciņus'
         rec=start_canvas.create_rectangle(458,248,1282,705,fill='white')
         uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)
+        jautajums=start_canvas.create_text(851,360)
         #funkcija kas uzdod random jautājumu
   
         #deafault atbildes iespējas katram jautājumam cita
