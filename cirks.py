@@ -36,25 +36,24 @@ lester=PhotoImage(file='lester.png')
 choose=Canvas(logs,width=PLATUMS,height=GARUMS)
 choose.create_text(300,50,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 35'))
 #1
-c1=choose.create_image(90,200,image=trevor)
+c1=choose.create_image(90,200,image=trevor,tags=('c1'))
+choose.tag_bind('c1','<Button-1>',lambda event: izvele())
 #2
-c2=choose.create_image(200,200,image=michael)
+c2=choose.create_image(220,200,image=michael,tags=('c2'))
+choose.tag_bind('c2','<Button-1>',lambda event: izvele())
 #3
-c2=choose.create_image(300,200,image=lester)
+c2=choose.create_image(350,200,image=lester,tags=('c3'))
+choose.tag_bind('c3','<Button-1>',lambda event: izvele())
+
 choose.pack_forget()
-
-
 
 #choose.create_text()
 #spēles laukums
 board = PhotoImage(file = "board.png")
 start_canvas.create_image(850,400,image = board)
 
-
-
 ierobezojums=10
 beigas=time()+ierobezojums
-
 
 #info poga un info canva
 global info_text_atgriezties
@@ -78,10 +77,13 @@ def infopoga():
   info_canvas.create_text(PLATUMS - 305, GARUMS - 120, text = "Spēle beidzas, kad lietotājs sasniedz sarkano laukumu.", font = ("Bahnshrift Condensed", 10, "bold"))
 mute=PhotoImage(file='mute.png')
 start_canvas
+
+
 def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
   info_canvas.pack_forget()
+
 def info_start():
   choose.pack()
   pygame.mixer.music.stop()
@@ -165,8 +167,9 @@ divdesmitseptitais=1361,174
 finish=1527,174
 
 #speletājs
-img=PhotoImage(file='trevor.png')
-player=start_canvas.create_image(starts,image=img)
+def izvele():
+  choose.pack_forget()
+  start_canvas.pack()
 
 
 #metamais kaulins
