@@ -33,17 +33,21 @@ start_canvas.pack_forget()
 trevor=PhotoImage(file='trevor.png')
 michael=PhotoImage(file='michael.png')
 lester=PhotoImage(file='lester.png')
+franklin=PhotoImage(file='franklin.png')
 choose=Canvas(logs,width=PLATUMS,height=GARUMS)
 choose.create_text(300,50,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 35'))
 #1
 c1=choose.create_image(90,200,image=trevor,tags=('c1'))
-choose.tag_bind('c1','<Button-1>',lambda event: izvele())
+choose.tag_bind('c1','<Button-1>',lambda event: trever())
 #2
 c2=choose.create_image(220,200,image=michael,tags=('c2'))
-choose.tag_bind('c2','<Button-1>',lambda event: izvele())
+choose.tag_bind('c2','<Button-1>',lambda event: mic())
 #3
-c2=choose.create_image(350,200,image=lester,tags=('c3'))
-choose.tag_bind('c3','<Button-1>',lambda event: izvele())
+c3=choose.create_image(350,200,image=lester,tags=('c3'))
+choose.tag_bind('c3','<Button-1>',lambda event: lest())
+#4
+c4=choose.create_image(500,200,image=franklin,tags=('c4'))
+choose.tag_bind('c4','<Button-1>',lambda event: fran())
 
 choose.pack_forget()
 
@@ -165,14 +169,28 @@ divdesmitpiektais=1032,174
 divdesmitsestais=1199,174
 divdesmitseptitais=1361,174
 finish=1527,174
-
+cr=0
 #speletājs
-
-def izvele():
+def trever():
   global player
   choose.pack_forget()
   start_canvas.pack()
   player=start_canvas.create_image(211,779,image=trevor)
+def mic():
+  global player
+  choose.pack_forget()
+  start_canvas.pack()
+  player=start_canvas.create_image(211,779,image=michael)
+def lest():
+  global player
+  choose.pack_forget()
+  start_canvas.pack()
+  player=start_canvas.create_image(211,779,image=lester)
+def fran():
+  global player
+  choose.pack_forget()
+  start_canvas.pack()
+  player=start_canvas.create_image(211,779,image=franklin)
 
 
 #metamais kaulins
