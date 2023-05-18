@@ -167,9 +167,12 @@ divdesmitseptitais=1361,174
 finish=1527,174
 
 #speletājs
+
 def izvele():
+  global player
   choose.pack_forget()
   start_canvas.pack()
+  player=start_canvas.create_image(211,779,image=trevor)
 
 
 #metamais kaulins
