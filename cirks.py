@@ -34,7 +34,9 @@ trevor=PhotoImage(file='trevor.png')
 michael=PhotoImage(file='michael.png')
 lester=PhotoImage(file='lester.png')
 franklin=PhotoImage(file='franklin.png')
+cback=PhotoImage(file='background_choose.png')
 choose=Canvas(logs,width=PLATUMS,height=GARUMS)
+choose.create_image(0,0,anchor='nw',image=cback)
 choose.create_text(300,50,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 35'))
 #1
 c1=choose.create_image(90,200,image=trevor,tags=('c1'))
@@ -225,20 +227,19 @@ def mest():
     def parbaude():
     #jautajumi
       global j1,j2,j3,j4,a1,a2,a3,a4
-
-      j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
-      j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
-      j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
-      j4 = "Kas ir atkarība?"
+      
+      if rand==1 or 2 or 3:
+        j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
+        j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
+        j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
+        j4 = "Kas ir atkarība?"
 
     #atbildes
 
-      a1 = ["Nikotīns", "Alkohols", "Narkotikas"]
-      a2 = ["12,5", "15", "9,5"]
-      a3 = ["Marihuāna", "Amfetamīni", "Ekstazī"]
-      a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
-      
-      if rand==1 or 2 or 3:
+        a1 = ["Nikotīns", "Alkohols", "Narkotikas"]
+        a2 = ["12,5", "15", "9,5"]
+        a3 = ["Marihuāna", "Amfetamīni", "Ekstazī"]
+        a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
         global rec, japoga, nepoga,uzmeti ,uzmeti2
         sleep(0.1)
        
