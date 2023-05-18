@@ -194,6 +194,7 @@ def fran():
 
 
 #metamais kaulins
+rand2= randint(1,4)
 rand=0
 pirma_bilde = PhotoImage(file='metamais1.png')
 otra_bilde=PhotoImage(file='metamais2.png')
@@ -223,6 +224,8 @@ def mest():
     dice = start_canvas.create_image(869,478 , image=dice_image)
     def parbaude():
     #jautajumi
+      global j1,j2,j3,j4,a1,a2,a3,a4
+
       j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
       j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
       j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
@@ -234,7 +237,7 @@ def mest():
       a2 = ["12,5", "15", "9,5"]
       a3 = ["Marihuāna", "Amfetamīni", "Ekstazī"]
       a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
-
+      
       if rand==1 or 2 or 3:
         global rec, japoga, nepoga,uzmeti ,uzmeti2
         sleep(0.1)
@@ -248,7 +251,16 @@ def mest():
         uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)
         jautajums=start_canvas.create_text(851,360)
         #funkcija kas uzdod random jautājumu
-  
+        if rand2 == 1:
+          start_canvas.create_text(855,380,text=j1,font=('Courier 16'),width=700)
+        elif rand2 == 2:
+          start_canvas.create_text(855,380,text=j2,font=('Courier 16'),width=700)
+        if rand2 == 3:
+          start_canvas.create_text(855,380,text=j3,font=('Courier 16'),width=700)
+        if rand2 == 4:
+          start_canvas.create_text(855,380,text=j4,font=('Courier 16'),width=700)
+
+
         #deafault atbildes iespējas katram jautājumam cita
         japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
         nepoga=start_canvas.create_text(920,555,text='NĒ',tags=('ne'),font=('Courier 20 bold'))
@@ -257,12 +269,12 @@ def mest():
         
     parbaude()
     def ne():
-      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2))
+      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2,j1,j2,j3,j4,a1,a2,a3,a4))
       pass
       
     def ja():
       global rec, japoga, nepoga,uzmeti, uzmeti2
-      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2))
+      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2,j1,j2,j3,j4,a1,a2,a3,a4))
       move_player(rand)
 coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
 (1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
