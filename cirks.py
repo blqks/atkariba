@@ -29,10 +29,27 @@ gta=PhotoImage(file='background_gta.png')
 start_canvas.create_image(0,0, anchor='nw',image=gta)
 
 start_canvas.pack_forget()
+#speletaja izvele
+trevor=PhotoImage(file='trevor.png')
+michael=PhotoImage(file='michael.png')
+lester=PhotoImage(file='lester.png')
+choose=Canvas(logs,width=PLATUMS,height=GARUMS)
+choose.create_text(300,50,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 35'))
+#1
+c1=choose.create_image(90,200,image=trevor)
+#2
+c2=choose.create_image(200,200,image=michael)
+#3
+c2=choose.create_image(300,200,image=lester)
+choose.pack_forget()
 
+
+
+#choose.create_text()
 #spēles laukums
 board = PhotoImage(file = "board.png")
 start_canvas.create_image(850,400,image = board)
+
 
 
 ierobezojums=10
@@ -66,7 +83,7 @@ def atgriezties():
   a.pack()
   info_canvas.pack_forget()
 def info_start():
-  start_canvas.pack()
+  choose.pack()
   pygame.mixer.music.stop()
   pygame.mixer.music.load('music2.mp3')
   pygame.mixer.music.play(loops=10)
@@ -106,7 +123,7 @@ def startpoga():
   pygame.mixer.music.stop()
   pygame.mixer.music.load('music2.mp3')
   pygame.mixer.music.play(loops=10)
-  start_canvas.pack(expand=False, fill='none')
+  choose.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
 
@@ -148,7 +165,7 @@ divdesmitseptitais=1361,174
 finish=1527,174
 
 #speletājs
-img=PhotoImage(file='board_player.png')
+img=PhotoImage(file='trevor.png')
 player=start_canvas.create_image(starts,image=img)
 
 
@@ -193,39 +210,38 @@ def mest():
       a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
 
       if rand==1 or 2 or 3:
-        global rec, japoga, nepoga,q,uzmeti ,uzmeti2
+        global rec, japoga, nepoga,uzmeti ,uzmeti2
         sleep(0.1)
-        rec=start_canvas.create_rectangle(529,281,1199,574,fill='red')
-        uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold')) 
+       
+        uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
         if rand ==1:
           laucins='lauciņu'
         else:
           laucins='lauciņus'
-        uzmeti2=start_canvas.create_text(851,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu',font=('Courier 20'))
-        q=start_canvas.create_text(836,457,text='vai tu lieto narkotikas?',font=('Courier 25 bold'))
-        
+        rec=start_canvas.create_rectangle(458,248,1282,705,fill='white')
+        uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)
+        #funkcija kas uzdod random jautājumu
+  
+        #deafault atbildes iespējas katram jautājumam cita
         japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
         nepoga=start_canvas.create_text(920,555,text='NĒ',tags=('ne'),font=('Courier 20 bold'))
-        start_canvas.tag_bind('ja', '<Button-1>', lambda event: ja() )
-        start_canvas.tag_bind('ne', '<Button-1>', lambda event: ja())
+        start_canvas.tag_bind('ja', '<Button-1>', lambda event: ja())
+        start_canvas.tag_bind('ne', '<Button-1>', lambda event: ne())
+        
     parbaude()
-    
+    def ne():
+      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2))
+      pass
+      
     def ja():
-      global rec, japoga, nepoga,q,uzmeti, uzmeti2
-      start_canvas.itemconfigure(rec,state='hidden')
-      start_canvas.itemconfigure(q,state='hidden')
-      start_canvas.itemconfigure(uzmeti2,state='hidden')
-      start_canvas.itemconfigure(uzmeti,state='hidden')
-      start_canvas.itemconfigure(japoga,state='hidden')
-      start_canvas.itemconfigure(nepoga,state='hidden')
+      global rec, japoga, nepoga,uzmeti, uzmeti2
+      start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,uzmeti,uzmeti2))
       move_player(rand)
 coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
 (1200, 779), (1365, 779), (1531, 628), (1531, 478), (1359, 478), (1199, 478), 
 (1036, 478), (869, 478), (706, 478), (542, 478), (376, 478), (212, 326), 
 (212, 174), (212, 174), (376, 174), (541, 174), (707, 174), (869, 174), 
 (1032, 174), (1199, 174), (1361, 174),(1527,174)]   
-
-
 
 t=start_canvas.create_text(861,626,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
 
