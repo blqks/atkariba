@@ -211,14 +211,16 @@ def mest():
     x1, y1 = start_canvas.coords(player)
     rand = randint(1, 3)
     if rand == 1:
-        dice_image = pirma_bilde
+      dice_image = pirma_bilde
+        
     elif rand == 2:
-        dice_image = otra_bilde
+      dice_image = otra_bilde
+        
     else:
-        dice_image = tresa_bilde
+      dice_image = tresa_bilde
+        
     
     dice = start_canvas.create_image(869,478 , image=dice_image)
-    
     def parbaude():
     #jautajumi
       j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
