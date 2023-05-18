@@ -34,22 +34,31 @@ trevor=PhotoImage(file='trevor.png')
 michael=PhotoImage(file='michael.png')
 lester=PhotoImage(file='lester.png')
 franklin=PhotoImage(file='franklin.png')
+chop=PhotoImage(file='chop.png')
 cback=PhotoImage(file='background_choose.png')
-choose=Canvas(logs,width=PLATUMS,height=GARUMS)
+choose=Canvas(logs,width=PLATUMS,height=GARUMS+30)
 choose.create_image(0,0,anchor='nw',image=cback)
-choose.create_text(300,50,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 35'))
+choose.create_text(300,30,text='IZVĒLIES SPĒLĒTĀJU',font=('Fixedsys 30'))
+choose.create_text(90,260,text='TREVOR',font=('Fixedsys 10'))
+choose.create_text(220,260,text='MICHAEL',font=('Fixedsys 10'))
+choose.create_text(360,260,text='LESTER',font=('Fixedsys 10'))
+choose.create_text(500,260,text='FRANKLIN',font=('Fixedsys 10'))
+choose.create_text(300,420,text='CHOP',font=('Fixedsys 10'))
 #1
-c1=choose.create_image(90,200,image=trevor,tags=('c1'))
+c1=choose.create_image(90,145,image=trevor,tags=('c1'))
 choose.tag_bind('c1','<Button-1>',lambda event: trever())
 #2
-c2=choose.create_image(220,200,image=michael,tags=('c2'))
+c2=choose.create_image(220,150,image=michael,tags=('c2'))
 choose.tag_bind('c2','<Button-1>',lambda event: mic())
 #3
-c3=choose.create_image(350,200,image=lester,tags=('c3'))
+c3=choose.create_image(350,150,image=lester,tags=('c3'))
 choose.tag_bind('c3','<Button-1>',lambda event: lest())
 #4
-c4=choose.create_image(500,200,image=franklin,tags=('c4'))
+c4=choose.create_image(500,150,image=franklin,tags=('c4'))
 choose.tag_bind('c4','<Button-1>',lambda event: fran())
+#5
+c5=choose.create_image(300,340,image=chop,tags=('c5'))
+choose.tag_bind('c5','<Button-1>',lambda event: cho())
 
 choose.pack_forget()
 
@@ -82,19 +91,15 @@ def infopoga():
   info_canvas.create_text(PLATUMS - 305, GARUMS - 160, text = "un atbild uz citu jautājumu.", font = ("Bahnshrift Condensed", 10, "bold"))
   info_canvas.create_text(PLATUMS - 305, GARUMS - 120, text = "Spēle beidzas, kad lietotājs sasniedz sarkano laukumu.", font = ("Bahnshrift Condensed", 10, "bold"))
 mute=PhotoImage(file='mute.png')
-start_canvas
 
-
+#aizver info un atver a canvu
 def atgriezties():
   logs.title('Atkarību cirks')
   a.pack()
   info_canvas.pack_forget()
-
+#atver choose canvu
 def info_start():
   choose.pack()
-  pygame.mixer.music.stop()
-  pygame.mixer.music.load('music2.mp3')
-  pygame.mixer.music.play(loops=10)
   info_canvas.pack_forget()
   a.pack_forget()
 global info, start
@@ -128,9 +133,6 @@ start_canvas.tag_bind(sledzis2,'<Button-1>',lambda event: muzikas_sledzis(pauze)
 def startpoga():
   a.pack_forget()
   info_canvas.pack_forget()
-  pygame.mixer.music.stop()
-  pygame.mixer.music.load('music2.mp3')
-  pygame.mixer.music.play(loops=10)
   choose.pack(expand=False, fill='none')
   global info, start
 #def kas aizver info canvu un atver start canvu
@@ -178,21 +180,38 @@ def trever():
   choose.pack_forget()
   start_canvas.pack()
   player=start_canvas.create_image(211,779,image=trevor)
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
 def mic():
   global player
   choose.pack_forget()
   start_canvas.pack()
   player=start_canvas.create_image(211,779,image=michael)
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
 def lest():
   global player
   choose.pack_forget()
   start_canvas.pack()
   player=start_canvas.create_image(211,779,image=lester)
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
 def fran():
   global player
   choose.pack_forget()
   start_canvas.pack()
   player=start_canvas.create_image(211,779,image=franklin)
+  pygame.mixer.music.stop()
+  pygame.mixer.music.load('music2.mp3')
+  pygame.mixer.music.play(loops=10)
+def cho():
+  global player
+  choose.pack_forget()
+  start_canvas.pack()
+  player=start_canvas.create_image(211,779,image=chop)
 
 
 #metamais kaulins
