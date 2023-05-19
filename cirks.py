@@ -276,6 +276,7 @@ def mest():
       uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)        
       jautajums=start_canvas.create_text(855,380,text='', font=('Courier 16'), width=700)
       #funkcija kas uzdod random jautājumu
+      rand2 = randint(1, 4)
       if rand2 == 1:
         start_canvas.itemconfig(jautajums, text=j1)
       elif rand2 == 2:
