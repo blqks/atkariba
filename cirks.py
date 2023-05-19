@@ -321,6 +321,7 @@ def mest():
       global rec, japoga, nepoga,uzmeti ,uzmeti2
       sleep(0.1)
 
+<<<<<<< Updated upstream
       uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
       if rand ==1:
         laucins='lauciņu'
@@ -346,6 +347,33 @@ def mest():
         start_canvas.create_text(855,380,text=j4,font=('Courier 16'),width=700)
       if rand2 == 5:
         start_canvas.create_text(855,380,text=j5,font=('Courier 16'),width=700)
+=======
+        uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
+        if rand ==1:
+          laucins='lauciņu'
+        else:
+          laucins='lauciņus'
+        rec=start_canvas.create_rectangle(458,248,1282,705,fill='white')
+        uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)        
+        jautajums=start_canvas.create_text(855,380,text='', font=('Courier 16'), width=700)
+        #funkcija kas uzdod random jautājumu
+        if rand2 == 1:
+          start_canvas.itemconfig(jautajums, text=j1)
+        elif rand2 == 2:
+          start_canvas.itemconfig(jautajums, text=j2)
+        elif rand2 == 3:
+          start_canvas.itemconfig(jautajums, text=j3)
+        elif rand2 == 4:
+          start_canvas.itemconfig(jautajums, text=j4)
+          
+          start_canvas.create_text(880,380,text=j2,font=('Courier 16'),width=700)
+        if rand2 == 3:
+          start_canvas.create_text(880,380,text=j3,font=('Courier 16'),width=700)
+        if rand2 == 4:
+          start_canvas.create_text(880,380,text=j4,font=('Courier 16'),width=700)
+        if rand2 == 5:
+          start_canvas.create_text(880,380,text=j5,font=('Courier 16'),width=700)
+>>>>>>> Stashed changes
 
 
 
