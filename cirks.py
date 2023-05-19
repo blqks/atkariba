@@ -252,6 +252,7 @@ def mest():
         j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
         j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
         j4 = "Kas ir atkarība?"
+        j5 = "Cik ilgi cilvēki izmanto telefonu dienā vidēji?"
 
     #atbildes
         a1 = ["Nikotīns", "Alkohols", "Narkotikas"]
@@ -259,6 +260,8 @@ def mest():
         a3 = ["Marihuāna", "Amfetamīni", "Ekstazī"]
         a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
         global rec, japoga, jautajums, nepoga,uzmeti ,uzmeti2
+        a5 = ["3.5h", "5,5h", "6h"]
+        global rec, japoga, nepoga,uzmeti ,uzmeti2
         sleep(0.1)
 
         uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
@@ -278,6 +281,16 @@ def mest():
           start_canvas.itemconfig(jautajums, text=j3)
         elif rand2 == 4:
           start_canvas.itemconfig(jautajums, text=j4)
+          
+          start_canvas.create_text(855,380,text=j2,font=('Courier 16'),width=700)
+        if rand2 == 3:
+          start_canvas.create_text(855,380,text=j3,font=('Courier 16'),width=700)
+        if rand2 == 4:
+          start_canvas.create_text(855,380,text=j4,font=('Courier 16'),width=700)
+        if rand2 == 5:
+          start_canvas.create_text(855,380,text=j5,font=('Courier 16'),width=700)
+
+
 
         #deafault atbildes iespējas katram jautājumam cita
         japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
