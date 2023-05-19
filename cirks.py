@@ -251,7 +251,7 @@ def mest():
   
   def parbaude():
   #jautajumi
-    global j1,j2,j3,j4,a1,a2,a3,a4,j5,j6,j7
+    global j1,j2,j3,j4,a1,a2,a3,a4,j5,j6,j7,j8,j9,j10
     
     if rand<=3:
       j1 = "Vai alkahols ir neveselīgs?"
@@ -282,7 +282,7 @@ def mest():
       uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)        
       jautajums=start_canvas.create_text(855,400,text='', font=('Courier 16'), width=700)
       #funkcija kas uzdod random jautājumu
-      rand2 = randint(1, 7)
+      rand2 = randint(1, 10)
       if rand2 == 1:
         start_canvas.itemconfig(jautajums, text=j1)
       elif rand2 == 2:
@@ -297,6 +297,13 @@ def mest():
         start_canvas.itemconfig(jautajums, text=j6)
       elif rand2 == 7:
         start_canvas.itemconfig(jautajums, text=j7)
+      elif rand2 == 8:
+        start_canvas.itemconfig(jautajums, text=j8)
+      elif rand2 == 9:
+        start_canvas.itemconfig(jautajums, text=j9)
+      elif rand2 == 10:
+        start_canvas.itemconfig(jautajums, text=j10)
+
       #deafault atbildes iespējas katram jautājumam cita
       japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
       nepoga=start_canvas.create_text(920,555,text='NĒ',tags=('ne'),font=('Courier 20 bold'))
