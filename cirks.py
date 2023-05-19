@@ -272,7 +272,6 @@ def mest():
       global rec, japoga, nepoga,uzmeti ,uzmeti2
       sleep(0.1)
 
-<<<<<<< Updated upstream
       uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
       if rand ==1:
         laucins='lauciņu'
@@ -298,7 +297,6 @@ def mest():
         start_canvas.create_text(855,380,text=j4,font=('Courier 16'),width=700)
       if rand2 == 5:
         start_canvas.create_text(855,380,text=j5,font=('Courier 16'),width=700)
-=======
         uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
         if rand ==1:
           laucins='lauciņu'
@@ -324,7 +322,6 @@ def mest():
           start_canvas.create_text(880,380,text=j4,font=('Courier 16'),width=700)
         if rand2 == 5:
           start_canvas.create_text(880,380,text=j5,font=('Courier 16'),width=700)
->>>>>>> Stashed changes
 
 
 
