@@ -251,13 +251,15 @@ def mest():
   
   def parbaude():
   #jautajumi
-    global j1,j2,j3,j4,a1,a2,a3,a4
+    global j1,j2,j3,j4,a1,a2,a3,a4,j5,j6
     
     if rand<=3:
       j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
-      j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
-      j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
+      j2 = "Vai latvijas alkahola patēriņš ir lielāks nekā citur?"
+      j3 = "Vai cilvēki latvijā izmanto narkotikas?"
       j4 = "Kas ir atkarība?"
+      j5 = 'Vai narkotikas ir sliktas?'
+      j6 = 'Vai atkarības atstāj sliktu ietekmi uz cilvēka'
 
   #atbildes
       a1 = ["Nikotīns", "Alkohols", "Narkotikas"]
@@ -274,9 +276,9 @@ def mest():
         laucins='lauciņus'
       rec=start_canvas.create_rectangle(458,248,1282,705,fill='white')
       uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)        
-      jautajums=start_canvas.create_text(855,380,text='', font=('Courier 16'), width=700)
+      jautajums=start_canvas.create_text(855,400,text='', font=('Courier 16'), width=700)
       #funkcija kas uzdod random jautājumu
-      rand2 = randint(1, 4)
+      rand2 = randint(1, 6)
       if rand2 == 1:
         start_canvas.itemconfig(jautajums, text=j1)
       elif rand2 == 2:
@@ -285,7 +287,8 @@ def mest():
         start_canvas.itemconfig(jautajums, text=j3)
       elif rand2 == 4:
         start_canvas.itemconfig(jautajums, text=j4)
-
+      elif rand2 == 5:
+        start_canvas.itemconfig(jautajums, text=j5)
       #deafault atbildes iespējas katram jautājumam cita
       japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
       nepoga=start_canvas.create_text(920,555,text='NĒ',tags=('ne'),font=('Courier 20 bold'))
