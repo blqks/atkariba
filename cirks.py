@@ -247,20 +247,17 @@ def mest():
     dice_image = tresa_bilde
 
   sound()
-  dice = start_canvas.create_image(869,478 , image=dice_image)
+  dice = start_canvas.create_image(869,328 , image=dice_image)
   
   def parbaude():
   #jautajumi
     global j1,j2,j3,j4,a1,a2,a3,a4
     
-   
-
     if rand<=3:
       j1 = "Kāda ir viss izplatītākā atkarība pasaulē?"
       j2 = "Kāds bija vidējais alkohola patēriņš uz vienu cilvēku Latvijā 2022. gadā?"
       j3 = "Kāda ir viss biežāk lietotā narkotika Latvijā?"
       j4 = "Kas ir atkarība?"
-      j5 = "Cik ilgi cilvēki izmanto telefonu dienā vidēji?"
 
   #atbildes
       a1 = ["Nikotīns", "Alkohols", "Narkotikas"]
@@ -268,8 +265,6 @@ def mest():
       a3 = ["Marihuāna", "Amfetamīni", "Ekstazī"]
       a4 = ["Hroniska slimība", "Īslaicīga garīga slimība"]
       global rec, japoga, jautajums, nepoga,uzmeti ,uzmeti2
-      a5 = ["3.5h", "5,5h", "6h"]
-      global rec, japoga, nepoga,uzmeti ,uzmeti2
       sleep(0.1)
 
       uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
@@ -289,41 +284,6 @@ def mest():
         start_canvas.itemconfig(jautajums, text=j3)
       elif rand2 == 4:
         start_canvas.itemconfig(jautajums, text=j4)
-        
-        start_canvas.create_text(855,380,text=j2,font=('Courier 16'),width=700)
-      if rand2 == 3:
-        start_canvas.create_text(855,380,text=j3,font=('Courier 16'),width=700)
-      if rand2 == 4:
-        start_canvas.create_text(855,380,text=j4,font=('Courier 16'),width=700)
-      if rand2 == 5:
-        start_canvas.create_text(855,380,text=j5,font=('Courier 16'),width=700)
-        uzmeti=start_canvas.create_text(851,331,text=f'Tu uzmeti {str(rand)} !',font=('Courier 30 bold'),fill='red') 
-        if rand ==1:
-          laucins='lauciņu'
-        else:
-          laucins='lauciņus'
-        rec=start_canvas.create_rectangle(458,248,1282,705,fill='white')
-        uzmeti2=start_canvas.create_text(855,351,text=f'Ablidi pareizi uz jautājumu, lai tiktu {str(rand)} {laucins} uz priekšu!',font=('Courier 16'),width=700)        
-        jautajums=start_canvas.create_text(855,380,text='', font=('Courier 16'), width=700)
-        #funkcija kas uzdod random jautājumu
-        if rand2 == 1:
-          start_canvas.itemconfig(jautajums, text=j1)
-        elif rand2 == 2:
-          start_canvas.itemconfig(jautajums, text=j2)
-        elif rand2 == 3:
-          start_canvas.itemconfig(jautajums, text=j3)
-        elif rand2 == 4:
-          start_canvas.itemconfig(jautajums, text=j4)
-          
-          start_canvas.create_text(880,380,text=j2,font=('Courier 16'),width=700)
-        if rand2 == 3:
-          start_canvas.create_text(880,380,text=j3,font=('Courier 16'),width=700)
-        if rand2 == 4:
-          start_canvas.create_text(880,380,text=j4,font=('Courier 16'),width=700)
-        if rand2 == 5:
-          start_canvas.create_text(880,380,text=j5,font=('Courier 16'),width=700)
-
-
 
       #deafault atbildes iespējas katram jautājumam cita
       japoga=start_canvas.create_text(776,554,text='JĀ',tags=('ja'),font=('Courier 20 bold'))
@@ -335,9 +295,11 @@ def mest():
   def ne():
     start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,jautajums,uzmeti,uzmeti2,j1,j2,j3,j4,a1,a2,a3,a4))
     start_canvas.after(100, lambda: start_canvas.delete(j1,j2,j3,j4,a1,a2,a3,a4))
+    mp2()
     
   def ja():
     global rec, japoga, nepoga,jautajums,uzmeti, uzmeti2
+    mp2()
     start_canvas.after(100, lambda: start_canvas.delete(rec,japoga,nepoga,jautajums,uzmeti,uzmeti2,j1,j2,j3,j4,a1,a2,a3,a4))
     move_player(rand)
 coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779), 
@@ -346,7 +308,7 @@ coords = [(211,779), (380,779), (544, 779), (709, 779), (872, 779), (1036, 779),
 (212, 174), (212, 174), (376, 174), (541, 174), (707, 174), (869, 174), 
 (1032, 174), (1199, 174), (1361, 174),(1527,174)]   
 
-t=start_canvas.create_text(861,626,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='#FF8300')
+t=start_canvas.create_text(861,626,text='mest kauliņu',tags=('t'),font=('Fixedsys 30'),fill='black')
 
 tpoga = start_canvas.tag_bind('t', '<Button-1>', lambda event: mest())
 
